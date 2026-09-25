@@ -1,0 +1,22 @@
+{
+  "name": "rasu-motivation-web",
+  "version": "1.0.0",
+  "description": "Official Web Platform for Rasu Motivation (@Rasu_Motivation) by MGCJ Ravihansa (BSc. Applied Sciences, RUSL)",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8080",
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "mongodb": "^6.5.0"
+  },
+  "keywords": [
+    "rasu-motivation",
+    "youtube",
+    "sri-lanka",
+    "education",
+    "motivation"
+  ],
+  "author": "MGCJ Ravihansa",
+  "license": "MIT"
+}

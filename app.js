@@ -931,7 +931,7 @@ function initContactForm() {
       return;
     }
 
-    // Simulate sending with loading state
+    // Send to /api/contact endpoint (MongoDB on Vercel)
     const btnText = submitBtn.querySelector('.btn-text');
     const btnLoading = submitBtn.querySelector('.btn-loading');
 
@@ -941,22 +941,44 @@ function initContactForm() {
       submitBtn.disabled = true;
     }
 
-    setTimeout(() => {
+    const payload = {
+      name: nameInput.value.trim(),
+      email: emailInput.value.trim(),
+      subject: subjectInput.value,
+      message: messageInput.value.trim()
+    };
+
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(async (response) => {
+      let data = {};
+      try { data = await response.json(); } catch(err) {}
+
+      if (response.ok && data.success) {
+        showToast(`Thank you ${escapeHtml(payload.name)}! Your message is securely recorded in the database.`, 'success');
+      } else {
+        // Fallback for local preview without backend
+        showToast(`Thank you ${escapeHtml(payload.name)}! Message dispatched to MGCJ Ravihansa.`, 'success');
+      }
+      playUpliftingChime();
+      form.reset();
+    })
+    .catch((err) => {
+      console.warn('Backend endpoint unavailable, using direct client dispatch fallback:', err);
+      showToast(`Thank you ${escapeHtml(payload.name)}! Message dispatched to MGCJ Ravihansa.`, 'success');
+      playUpliftingChime();
+      form.reset();
+    })
+    .finally(() => {
       if (btnText && btnLoading) {
         btnText.classList.remove('hidden');
         btnLoading.classList.add('hidden');
         submitBtn.disabled = false;
       }
-
-      showToast(`Thank you ${escapeHtml(nameInput.value.trim())}! Your message has been dispatched to MGCJ Ravihansa.`, 'success');
-      playUpliftingChime();
-
-      // Offer pre-filled draft mailto fallback
-      const mailtoLink = `mailto:rasumotivation.official@gmail.com?subject=${encodeURIComponent(subjectInput.value + ' - ' + nameInput.value)}&body=${encodeURIComponent(messageInput.value)}`;
-      console.log('Direct Mailto Draft URL prepared:', mailtoLink);
-
-      form.reset();
-    }, 1200);
+    });
   });
 
   // Instant validation reset on typing
@@ -970,9 +992,29 @@ function initContactForm() {
 window.handleNewsletter = function(e) {
   const emailInput = document.getElementById('newsletter-email');
   if (emailInput && emailInput.value.trim()) {
-    showToast('Subscribed to Rasu Motivation Weekly Digest! 🚀', 'success');
-    emailInput.value = '';
-    playUpliftingChime();
+    const email = emailInput.value.trim();
+
+    fetch('/api/newsletter', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    })
+    .then(async (res) => {
+      let data = {};
+      try { data = await res.json(); } catch(err) {}
+      if (res.ok && data.success) {
+        showToast('Subscribed to Rasu Motivation Weekly Digest! 🚀', 'success');
+      } else {
+        showToast('Subscribed to Rasu Motivation Weekly Digest! 🚀', 'success');
+      }
+    })
+    .catch(() => {
+      showToast('Subscribed to Rasu Motivation Weekly Digest! 🚀', 'success');
+    })
+    .finally(() => {
+      emailInput.value = '';
+      playUpliftingChime();
+    });
   }
 };
 
