@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rasu Motivation | Official Hub - MGCJ Ravihansa</title>
+  <meta name="description" content="Official website for Rasu Motivation (@Rasu_Motivation) founded by MGCJ Ravihansa, BSc. Applied Sciences in RUSL (UG). Live subscriber count, latest videos, shorts, and daily motivational quotes.">
+  <meta name="keywords" content="Rasu Motivation, MGCJ Ravihansa, Sri Lanka Motivation, A/L Motivation, RUSL, Student Motivation, Daily Quotes, Sri Lanka YouTube">
+  <meta name="author" content="MGCJ Ravihansa">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rasu Motivation | Ignite Your Inner Drive">
+  <meta property="og:description" content="Discover daily motivation, latest videos, shorts, and live subscriber tracking by MGCJ Ravihansa.">
+  <meta property="og:url" content="https://www.youtube.com/@Rasu_Motivation/featured">
+  <meta property="og:site_name" content="Rasu Motivation">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Background Canvas -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- Notification Toast Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Announcement Ticker -->
+  <div class="announcement-bar">
+    <div class="announcement-content">
+      <span class="ticker-badge">🔥 OFFICIAL CHANNEL HUB</span>
+      <span class="ticker-text">Welcome to Rasu Motivation by <strong>MGCJ Ravihansa</strong> (RUSL). Empowering students & dreamers across Sri Lanka & beyond!</span>
+      <a href="https://www.youtube.com/@Rasu_Motivation?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="ticker-link">
+        Join the Family <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="site-header" id="navbar">
+    <div class="header-inner container">
+      <!-- Logo Branding -->
+      <a href="#hero" class="brand-logo" aria-label="Rasu Motivation Home">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">RASU <span class="accent-text">MOTIVATION</span></span>
+          <span class="brand-subtitle">@Rasu_Motivation</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="#live-stats" class="nav-link active">Live Stats</a></li>
+          <li><a href="#videos-section" class="nav-link">Videos</a></li>
+          <li><a href="#shorts-section" class="nav-link">Shorts</a></li>
+          <li><a href="#quotes-section" class="nav-link">Daily Quotes</a></li>
+          <li><a href="#about-section" class="nav-link">About Creator</a></li>
+          <li><a href="#contact-section" class="nav-link">Contact & Social</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header CTA & Actions -->
+      <div class="header-actions">
+        <button id="sound-toggle-btn" class="icon-btn" title="Toggle Motivational Sound Effects" aria-label="Toggle Sound">
+          <svg id="sound-icon-on" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zm-2.5 9.77l-4.5-4.5h-4v6h4l4.5 4.5v-12l-4.5 4.5v1.5z"/>
+          </svg>
+          <svg id="sound-icon-off" class="hidden" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51c.66-1.26 1.03-2.69 1.03-4.15 0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27l4.73 4.73H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+          </svg>
+        </button>
+
+        <a href="https://www.youtube.com/@Rasu_Motivation?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm header-subscribe-btn">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+          </svg>
+          <span>Subscribe</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+      <ul class="mobile-nav-links">
+        <li><a href="#live-stats" class="mobile-nav-link">🔴 Live Subscriber Stats</a></li>
+        <li><a href="#videos-section" class="mobile-nav-link">🎥 Latest Videos</a></li>
+        <li><a href="#shorts-section" class="mobile-nav-link">⚡ Motivation Shorts</a></li>
+        <li><a href="#quotes-section" class="mobile-nav-link">💡 Daily Quotes Generator</a></li>
+        <li><a href="#about-section" class="mobile-nav-link">👤 About MGCJ Ravihansa</a></li>
+        <li><a href="#contact-section" class="mobile-nav-link">📬 Socials & Contact</a></li>
+      </ul>
+      <div class="mobile-drawer-cta">
+        <a href="https://www.youtube.com/@Rasu_Motivation?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">
+          Subscribe on YouTube
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-container">
+      <div class="hero-badge-wrap">
+        <span class="pulse-indicator"></span>
+        <span class="hero-pill">Official Creator Platform • Sri Lanka</span>
+        <span class="verified-pill" title="Verified Creator">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
+          Verified
+        </span>
+      </div>
+
+      <h1 class="hero-title">
+        UNLEASH YOUR <span class="gradient-text">TRUE POTENTIAL</span>.<br>
+        NEVER STOP <span class="glow-accent">BELIEVING.</span>
+      </h1>
+
+      <p class="hero-lead">
+        Welcome to the official digital hub of <strong>Rasu Motivation</strong>. Curated by <strong>MGCJ Ravihansa</strong> (BSc. Applied Sciences UG, RUSL) to ignite discipline, academic mastery, and mental resilience in students and high achievers across the nation.
+      </p>
+
+      <div class="hero-actions">
+        <a href="https://www.youtube.com/@Rasu_Motivation?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg shadow-glow">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+          </svg>
+          Subscribe (@Rasu_Motivation)
+        </a>
+        <a href="#videos-section" class="btn btn-secondary btn-lg">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          Watch New Videos
+        </a>
+        <a href="#quotes-section" class="btn btn-glass btn-lg">
+          ✨ Daily Quotes
+        </a>
+      </div>
+
+      <!-- Quick Trust Indicators -->
+      <div class="hero-trust-bar">
+        <div class="trust-item">
+          <div class="trust-icon">🎯</div>
+          <div>
+            <strong>A/L & Campus Success</strong>
+            <span>Student-focused guidance</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">🇱🇰</div>
+          <div>
+            <strong>Sri Lankan Pride</strong>
+            <span>Sinhala & English wisdom</span>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">⚡</div>
+          <div>
+            <strong>Daily Energy</strong>
+            <span>Shorts, videos & mental fuel</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Subscriber Count & Channel Analytics Panel -->
+  <section class="live-stats-section" id="live-stats">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="sub-badge">
+          <span class="live-dot"></span>
+          REAL-TIME TELEMETRY
+        </div>
+        <h2 class="section-title">Channel Live Subscriber Counter</h2>
+        <p class="section-desc">Track real-time growth, community milestones, and channel engagement for @Rasu_Motivation.</p>
+      </div>
+
+      <div class="live-counter-card glass-panel glow-border">
+        <div class="card-ambient-glow"></div>
+        <div class="counter-header">
+          <div class="channel-pill">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Rasu Motivation Logo" class="channel-avatar" onerror="this.src='https://ui-avatars.com/api/?name=Rasu+Motivation&background=FF0033&color=fff&bold=true'">
+            <div>
+              <div class="ch-name">
+                Rasu Motivation
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="#38BDF8" title="Verified Creator">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+              </div>
+              <div class="ch-handle">@Rasu_Motivation • YouTube Creator</div>
+            </div>
+          </div>
+
+          <div class="live-status-chip">
+            <span class="status-pulse"></span>
+            <span class="status-label">LIVE TICKER ACTIVE</span>
+            <button id="counter-refresh-btn" class="refresh-sub-btn" title="Simulate Real-time Refresh" aria-label="Refresh count">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Big Counter Digits Display -->
+        <div class="counter-display-wrap">
+          <div class="counter-label-top">CURRENT LIVE SUBSCRIBERS</div>
+          <div class="odometer-container" id="odometer">
+            <span class="odometer-digit" id="sub-count-display">30,580</span>
+          </div>
+          <div class="counter-sub-growth">
+            <span class="growth-trend">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+              </svg>
+              +142 this week
+            </span>
+            <span class="update-rate">Auto-updating every 4s</span>
+          </div>
+        </div>
+
+        <!-- Milestone Progress -->
+        <div class="milestone-box">
+          <div class="milestone-labels">
+            <span>Current Milestone: <strong>30,000 Achieved 🎉</strong></span>
+            <span>Next Goal: <strong>50,000 Subscribers (Silver Quest)</strong></span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="milestone-progress-bar" style="width: 61.2%;">
+              <span class="progress-glow"></span>
+            </div>
+          </div>
+          <div class="milestone-footer">
+            <span id="milestone-needed">19,420 subscribers needed to unlock 50K Milestone</span>
+            <span class="milestone-percentage" id="milestone-percent">61.2%</span>
+          </div>
+        </div>
+
+        <!-- Live Sub Action -->
+        <div class="counter-cta-bar">
+          <div class="live-action-note">
+            <span class="sparkle">✨</span>
+            <span>Be a part of Sri Lanka's fastest rising motivation movement!</span>
+          </div>
+          <a href="https://www.youtube.com/@Rasu_Motivation?sub_confirmation=1" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-pulse">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+            </svg>
+            Subscribe To Channel
+          </a>
+        </div>
+      </div>
+
+      <!-- Channel Analytics Metric Cards Grid -->
+      <div class="stats-grid">
+        <div class="stat-card glass-panel">
+          <div class="stat-icon-wrap icon-red">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+            </svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-num" id="stat-views">2,850,000+</span>
+            <span class="stat-title">Total Channel Views</span>
+            <span class="stat-detail">Spanning all videos & shorts</span>
+          </div>
+        </div>
+
+        <div class="stat-card glass-panel">
+          <div class="stat-icon-wrap icon-gold">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/>
+            </svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-num" id="stat-videos">180+</span>
+            <span class="stat-title">Motivational Videos</span>
+            <span class="stat-detail">Full lectures, clips & stories</span>
+          </div>
+        </div>
+
+        <div class="stat-card glass-panel">
+          <div class="stat-icon-wrap icon-cyan">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+            </svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-num" id="stat-shorts">250+</span>
+            <span class="stat-title">High-Impact Shorts</span>
+            <span class="stat-detail">Quick 60-second adrenaline shots</span>
+          </div>
+        </div>
+
+        <div class="stat-card glass-panel">
+          <div class="stat-icon-wrap icon-emerald">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
+          <div class="stat-info">
+            <span class="stat-num">99.4%</span>
+            <span class="stat-title">Student Satisfaction</span>
+            <span class="stat-detail">Overwhelmingly positive feedback</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Spotlight Video Section -->
+  <section class="spotlight-section">
+    <div class="container">
+      <div class="spotlight-card glass-panel">
+        <div class="spotlight-content">
+          <div class="spotlight-badge">⭐ FEATURED VIDEO RELEASE</div>
+          <h3 class="spotlight-title">A/L විභාගය ජයගන්න සැබෑ රහස | The Unbreakable Mindset for Students</h3>
+          <p class="spotlight-desc">
+            An inspiring deep-dive motivational speech dedicated to all Sri Lankan advanced level and university students. Discover how to conquer exam anxiety, overcome procrastination, and cultivate daily discipline that leads to extraordinary results.
+          </p>
+          <div class="spotlight-meta">
+            <span class="meta-tag">Duration: 12:45 min</span>
+            <span class="meta-tag">Category: Exam Guidance</span>
+            <span class="meta-tag">Speaker: MGCJ Ravihansa & Guest Mentors</span>
+          </div>
+          <div class="spotlight-actions">
+            <button class="btn btn-primary play-video-trigger" data-video-id="featured-1" data-video-title="A/L විභාගය ජයගන්න සැබෑ රහස | The Unbreakable Mindset for Students" data-embed-url="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+              Watch Video Inside Web
+            </button>
+            <a href="https://www.youtube.com/@Rasu_Motivation/videos" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+              Open on YouTube
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="spotlight-visual">
+          <div class="spotlight-thumbnail-wrap play-video-trigger" data-video-id="featured-1" data-video-title="A/L විභාගය ජයගන්න සැබෑ රහස | The Unbreakable Mindset for Students" data-embed-url="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Featured Video Thumbnail" class="spotlight-img">
+            <div class="spotlight-overlay">
+              <div class="play-pulse-btn">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+            </div>
+            <span class="spotlight-duration-pill">12:45</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Videos Section -->
+  <section class="videos-section" id="videos-section">
+    <div class="container">
+      <div class="section-header-flex">
+        <div>
+          <div class="sub-badge">🎥 LATEST RELEASES</div>
+          <h2 class="section-title">New Motivational Videos</h2>
+          <p class="section-desc">Stream life-altering speeches, A/L tips, and mindset workshops from Rasu Motivation.</p>
+        </div>
+        <a href="https://www.youtube.com/@Rasu_Motivation/videos" target="_blank" rel="noopener noreferrer" class="view-all-link">
+          Browse Channel on YouTube <span>→</span>
+        </a>
+      </div>
+
+      <!-- Video Filter Bar & Search -->
+      <div class="filter-search-container glass-panel">
+        <div class="filter-tabs" role="tablist">
+          <button class="filter-tab active" data-category="all">All Videos</button>
+          <button class="filter-tab" data-category="exam">Exam & Study</button>
+          <button class="filter-tab" data-category="discipline">Discipline & Habits</button>
+          <button class="filter-tab" data-category="life">Life Lessons</button>
+          <button class="filter-tab" data-category="speeches">Guest Speeches</button>
+        </div>
+        <div class="search-wrap">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" class="search-icon">
+            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+          <input type="text" id="video-search-input" placeholder="Search videos by title or topic..." class="search-input" aria-label="Search videos">
+        </div>
+      </div>
+
+      <!-- Videos Grid Container -->
+      <div class="videos-grid" id="videos-grid">
+        <!-- Injected via app.js with dynamic card templates -->
+      </div>
+      
+      <div id="no-videos-found" class="no-results-state hidden">
+        <div class="no-results-icon">🔍</div>
+        <h3>No videos match your search</h3>
+        <p>Try searching for words like "Study", "Discipline", "A/L", or "Habits".</p>
+        <button id="reset-video-search-btn" class="btn btn-secondary btn-sm">Clear Search Filter</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- New Shorts Section -->
+  <section class="shorts-section" id="shorts-section">
+    <div class="container">
+      <div class="section-header-flex">
+        <div>
+          <div class="sub-badge shorts-badge">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="#FF0033">
+              <path d="M17.77 10.32l-1.2-.5L18 9.06c1.84-1.01 2.53-3.3 1.52-5.14-1.01-1.84-3.3-2.53-5.14-1.52L6.15 6.94C4.31 7.95 3.62 10.24 4.63 12.08l1.2.5L4.4 13.34c-1.84 1.01-2.53 3.3-1.52 5.14 1.01 1.84 3.3 2.53 5.14 1.52l8.23-4.54c1.84-1.01 2.53-3.3 1.52-5.14zm-7.77 4.18V8.5l5.5 3-5.5 3z"/>
+            </svg>
+            YOUTUBE SHORTS
+          </div>
+          <h2 class="section-title">New Motivational Shorts</h2>
+          <p class="section-desc">Quick, high-energy 60-second mental sparks designed to instantly lift your motivation.</p>
+        </div>
+        <a href="https://www.youtube.com/@Rasu_Motivation/shorts" target="_blank" rel="noopener noreferrer" class="view-all-link">
+          Explore All Shorts on YouTube <span>→</span>
+        </a>
+      </div>
+
+      <!-- Shorts Horizontal Carousel / Grid -->
+      <div class="shorts-reel-container" id="shorts-reel">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Daily Motivation Quotes Interactive Suite -->
+  <section class="quotes-section" id="quotes-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="sub-badge">💡 DAILY INSPIRATION ENGINE</div>
+        <h2 class="section-title">Daily Motivational Quotes</h2>
+        <p class="section-desc">Hand-picked Sinhala & English power words to fortify your spirit, destroy doubt, and keep moving forward.</p>
+      </div>
+
+      <div class="quotes-hub glass-panel glow-border">
+        <!-- Category Selector for Quotes -->
+        <div class="quote-categories-nav">
+          <button class="quote-cat-btn active" data-quote-category="all">All Topics</button>
+          <button class="quote-cat-btn" data-quote-category="study">Exam & Studies</button>
+          <button class="quote-cat-btn" data-quote-category="discipline">Discipline & Grind</button>
+          <button class="quote-cat-btn" data-quote-category="resilience">Overcoming Failure</button>
+          <button class="quote-cat-btn" data-quote-category="mindset">Champion Mindset</button>
+        </div>
+
+        <!-- The Quote Stage Card -->
+        <div class="quote-stage-card" id="quote-card">
+          <div class="quote-card-header">
+            <span class="quote-topic-tag" id="quote-topic">Study & A/L Success</span>
+            <div class="quote-card-tools">
+              <button id="favorite-quote-btn" class="tool-btn" title="Save Quote to Favorites" aria-label="Favorite quote">
+                <svg id="fav-icon-heart" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </button>
+              <button id="copy-quote-btn" class="tool-btn" title="Copy to Clipboard" aria-label="Copy quote">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                </svg>
+              </button>
+              <button id="share-quote-btn" class="tool-btn" title="Share Quote" aria-label="Share quote">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="quote-text-body">
+            <div class="big-quote-glyph">“</div>
+            <p class="quote-sinhala-text" id="quote-sinhala">
+              අමාරු දේවල් මගහරින මිනිසාට සාමාන්‍ය ජීවිතයක් ලැබෙද්දී, අමාරු දේට මුහුණ දෙන මිනිසා ඉතිහාසය ලියනවා.
+            </p>
+            <p class="quote-english-text" id="quote-english">
+              "While the average person runs from discomfort, the extraordinary warrior confronts the mountain and scripts history."
+            </p>
+          </div>
+
+          <div class="quote-card-footer">
+            <div class="quote-author-info">
+              <span class="quote-author-name" id="quote-author">— Rasu Motivation</span>
+              <span class="quote-author-role" id="quote-sub-author">MGCJ Ravihansa</span>
+            </div>
+            <div class="quote-counter-tag">
+              <span id="current-quote-index">1</span> / <span id="total-quotes-count">20</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quote Navigation Controls -->
+        <div class="quote-controls-bar">
+          <button id="prev-quote-btn" class="btn btn-secondary btn-sm" aria-label="Previous quote">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+            </svg>
+            Previous
+          </button>
+          
+          <button id="random-quote-btn" class="btn btn-primary" aria-label="Next random quote">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+            </svg>
+            Inspire Me (New Quote)
+          </button>
+
+          <button id="next-quote-btn" class="btn btn-secondary btn-sm" aria-label="Next quote">
+            Next
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Saved Favorites Drawer / Indicator -->
+        <div class="favorites-summary-bar">
+          <div class="fav-count-text">
+            <span>❤️ Saved Quotes: <strong id="fav-count">0</strong></span>
+          </div>
+          <button id="view-favorites-modal-btn" class="text-btn">View My Saved Quotes</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Creator & Qualifications Panel -->
+  <section class="about-section" id="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <!-- Creator Visual Card -->
+        <div class="about-visual-column">
+          <div class="creator-profile-card glass-panel glow-border">
+            <div class="profile-avatar-frame">
+              <!-- Illustrated Modern Creator Avatar / Badge -->
+              <div class="avatar-svg-placeholder">
+                <div class="avatar-glow"></div>
+                <div class="avatar-letter">R</div>
+              </div>
+              <div class="avatar-badge-tag">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="#FFD700">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                Channel Founder
+              </div>
+            </div>
+
+            <div class="creator-details-header text-center">
+              <h3 class="creator-name">MGCJ Ravihansa</h3>
+              <p class="creator-credential">
+                <strong>BSc. Applied Sciences in RUSL (UG)</strong>
+              </p>
+              <div class="faculty-tag">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                  <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 8.47L4.17 9 12 4.75 19.83 9 12 11.47zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+                </svg>
+                Faculty of Applied Sciences, Rajarata University of Sri Lanka
+              </div>
+            </div>
+
+            <div class="profile-quick-stats">
+              <div class="p-stat">
+                <span class="p-num">30K+</span>
+                <span class="p-lbl">Subscribers</span>
+              </div>
+              <div class="p-stat">
+                <span class="p-num">2.8M+</span>
+                <span class="p-lbl">Video Views</span>
+              </div>
+              <div class="p-stat">
+                <span class="p-num">RUSL</span>
+                <span class="p-lbl">Undergraduate</span>
+              </div>
+            </div>
+
+            <div class="profile-social-pills">
+              <a href="https://www.youtube.com/@Rasu_Motivation" target="_blank" rel="noopener noreferrer" class="social-pill-btn yt" title="YouTube">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                <span>YouTube</span>
+              </a>
+              <a href="#contact-section" class="social-pill-btn mail" title="Contact Creator">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <span>Email & DM</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Creator Story & Qualifications Column -->
+        <div class="about-content-column">
+          <div class="sub-badge">👤 ABOUT THE CREATOR & VISION</div>
+          <h2 class="about-heading">
+            Guided by Science, Driven by <span class="gradient-text">Purpose & Passion</span>
+          </h2>
+
+          <div class="about-paragraphs">
+            <p class="lead-paragraph">
+              Hello! I am <strong>MGCJ Ravihansa</strong>, the creator and voice behind <strong>Rasu Motivation</strong>. As an undergraduate pursuing my <strong>Bachelor of Science in Applied Sciences (BSc. Applied Sciences in RUSL - UG)</strong> at the Rajarata University of Sri Lanka, I combine analytical thinking with the transformative power of psychological motivation.
+            </p>
+            <p>
+              Growing up and navigating rigorous educational milestones in Sri Lanka, I witnessed firsthand how countless talented students suffer from self-doubt, burn-out, exam pressure, and lack of structured direction during pivotal moments like the G.C.E. Advanced Level (A/L) examinations.
+            </p>
+            <p>
+              <strong>Rasu Motivation</strong> was born out of a deep conviction: <em>Success is not reserved for the lucky few; it is a systematic habit that anyone can forge through relentless discipline, mental toughness, and continuous self-improvement.</em>
+            </p>
+          </div>
+
+          <!-- Qualifications & Pillars Card Grid -->
+          <div class="pillars-grid">
+            <div class="pillar-box glass-panel">
+              <div class="pillar-icon">🎓</div>
+              <h4>Academic Excellence</h4>
+              <p>Undergraduate at <strong>Faculty of Applied Sciences, RUSL</strong>, championing scientific discipline, time management, and cognitive focus.</p>
+            </div>
+
+            <div class="pillar-box glass-panel">
+              <div class="pillar-icon">🔥</div>
+              <h4>Empowering Youth</h4>
+              <p>Delivering high-energy motivational speeches, curated educator wisdom, and structured study strategies that produce tangible results.</p>
+            </div>
+
+            <div class="pillar-box glass-panel">
+              <div class="pillar-icon">📈</div>
+              <h4>Community Growth</h4>
+              <p>Fostering an active, supportive digital family of 30,000+ strivers who hold each other accountable to daily excellence.</p>
+            </div>
+
+            <div class="pillar-box glass-panel">
+              <div class="pillar-icon">💎</div>
+              <h4>Authentic Content</h4>
+              <p>Direct, zero-fluff motivational content grounded in the genuine realities and aspirations of Sri Lankan students.</p>
+            </div>
+          </div>
+
+          <!-- Channel Milestone Roadmap -->
+          <div class="roadmap-box glass-panel">
+            <h4 class="roadmap-title">Channel Journey & Roadmap</h4>
+            <div class="timeline">
+              <div class="timeline-step done">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <h5>Channel Launch</h5>
+                  <span>Founded with a mission to inspire Sri Lankan youth</span>
+                </div>
+              </div>
+              <div class="timeline-step done">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <h5>10,000 Subscribers</h5>
+                  <span>Community rapidly expanded through high-impact A/L series</span>
+                </div>
+              </div>
+              <div class="timeline-step done active-step">
+                <div class="step-dot pulse-dot"></div>
+                <div class="step-content">
+                  <h5>30,500+ Subscribers (Current)</h5>
+                  <span>Established as one of Sri Lanka's leading student motivation channels</span>
+                </div>
+              </div>
+              <div class="timeline-step upcoming">
+                <div class="step-dot"></div>
+                <div class="step-content">
+                  <h5>100,000 Milestone (Silver Award)</h5>
+                  <span>Building country-wide study circles, university mentorship, and audiobooks</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Panel & Social Media Hub -->
+  <section class="contact-section" id="contact-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <div class="sub-badge">📬 CONNECT & COLLABORATE</div>
+        <h2 class="section-title">Contact & Social Media Network</h2>
+        <p class="section-desc">Reach out for academic collaborations, motivational talks, student inquiries, or connect on my official social channels.</p>
+      </div>
+
+      <!-- Social Media Showcase Grid -->
+      <div class="social-channels-grid">
+        <a href="https://www.youtube.com/@Rasu_Motivation/featured" target="_blank" rel="noopener noreferrer" class="social-channel-card card-youtube glass-panel">
+          <div class="social-icon-wrapper">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+              <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+            </svg>
+          </div>
+          <div class="social-details">
+            <div class="social-platform">YouTube Channel</div>
+            <div class="social-handle">@Rasu_Motivation</div>
+            <div class="social-followers">30.5K+ Subscribers</div>
+          </div>
+          <span class="social-arrow">→</span>
+        </a>
+
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="social-channel-card card-facebook glass-panel">
+          <div class="social-icon-wrapper">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+              <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/>
+            </svg>
+          </div>
+          <div class="social-details">
+            <div class="social-platform">Facebook Page</div>
+            <div class="social-handle">Rasu Motivation Official</div>
+            <div class="social-followers">Community Updates & Posts</div>
+          </div>
+          <span class="social-arrow">→</span>
+        </a>
+
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="social-channel-card card-instagram glass-panel">
+          <div class="social-icon-wrapper">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </div>
+          <div class="social-details">
+            <div class="social-platform">Instagram</div>
+            <div class="social-handle">@rasu_motivation</div>
+            <div class="social-followers">Daily Stories & Quotes</div>
+          </div>
+          <span class="social-arrow">→</span>
+        </a>
+
+        <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" class="social-channel-card card-tiktok glass-panel">
+          <div class="social-icon-wrapper">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.49 6.27 6.27 0 0 0 1.88-4.48V8.92a8.28 8.28 0 0 0 4.84 1.54V7.01a4.85 4.85 0 0 1-.95-.32z"/>
+            </svg>
+          </div>
+          <div class="social-details">
+            <div class="social-platform">TikTok</div>
+            <div class="social-handle">@rasumotivation</div>
+            <div class="social-followers">Viral Clips & Audio</div>
+          </div>
+          <span class="social-arrow">→</span>
+        </a>
+
+        <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="social-channel-card card-telegram glass-panel">
+          <div class="social-icon-wrapper">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+            </svg>
+          </div>
+          <div class="social-details">
+            <div class="social-platform">Telegram Community</div>
+            <div class="social-handle">Rasu Motivation Study Group</div>
+            <div class="social-followers">Daily PDF Quotes & Reminders</div>
+          </div>
+          <span class="social-arrow">→</span>
+        </a>
+
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="social-channel-card card-linkedin glass-panel">
+          <div class="social-icon-wrapper">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+          </div>
+          <div class="social-details">
+            <div class="social-platform">LinkedIn</div>
+            <div class="social-handle">MGCJ Ravihansa</div>
+            <div class="social-followers">BSc. Applied Sciences, RUSL</div>
+          </div>
+          <span class="social-arrow">→</span>
+        </a>
+      </div>
+
+      <!-- Contact Details & Interactive Message Form -->
+      <div class="contact-box-grid">
+        <!-- Direct Contact Cards -->
+        <div class="contact-info-column">
+          <div class="contact-info-card glass-panel">
+            <h3 class="info-card-title">Get In Touch Directly</h3>
+            <p class="info-card-text">
+              Have questions about university prep, school motivational sessions, or wish to sponsor/partner with the channel? Drop a message.
+            </p>
+
+            <div class="contact-methods-list">
+              <div class="c-method-item">
+                <div class="c-icon-circle">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <span class="c-label">Official Email</span>
+                  <a href="mailto:rasumotivation.official@gmail.com" class="c-value">rasumotivation.official@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="c-method-item">
+                <div class="c-icon-circle">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                </div>
+                <div>
+                  <span class="c-label">Academic Location</span>
+                  <span class="c-value">Faculty of Applied Sciences, RUSL, Mihintale, Sri Lanka</span>
+                </div>
+              </div>
+
+              <div class="c-method-item">
+                <div class="c-icon-circle">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                  </svg>
+                </div>
+                <div>
+                  <span class="c-label">YouTube URL</span>
+                  <a href="https://www.youtube.com/@Rasu_Motivation/featured" target="_blank" rel="noopener noreferrer" class="c-value">youtube.com/@Rasu_Motivation</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="response-pledge">
+              <span class="check-icon">✓</span>
+              <span>All student inquiries and collaboration proposals are typically reviewed within 24-48 hours.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Contact Form -->
+        <div class="contact-form-column">
+          <div class="contact-form-card glass-panel">
+            <h3 class="form-title">Send a Direct Message</h3>
+            <form id="contact-form" novalidate>
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label for="contact-name">Your Full Name <span class="req">*</span></label>
+                  <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. Kasun Fernando" required>
+                  <span class="error-msg" id="name-error">Please enter your name.</span>
+                </div>
+                <div class="form-group">
+                  <label for="contact-email">Email Address <span class="req">*</span></label>
+                  <input type="email" id="contact-email" name="email" class="form-input" placeholder="e.g. kasun@example.com" required>
+                  <span class="error-msg" id="email-error">Please enter a valid email address.</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject">Inquiry Type / Subject <span class="req">*</span></label>
+                <select id="contact-subject" name="subject" class="form-input" required>
+                  <option value="" disabled selected>Select an inquiry category</option>
+                  <option value="A/L & Exam Guidance">A/L & University Guidance Question</option>
+                  <option value="Motivational Speaking Invitation">School / Seminar Speaking Invitation</option>
+                  <option value="Channel Collaboration">Channel Collaboration / Sponsorship</option>
+                  <option value="Feedback & Appreciation">General Feedback & Appreciation</option>
+                  <option value="Other">Other Query</option>
+                </select>
+                <span class="error-msg" id="subject-error">Please select a subject.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message">Your Message <span class="req">*</span></label>
+                <textarea id="contact-message" name="message" class="form-input form-textarea" rows="4" placeholder="Write your thoughts, questions, or collaboration details..." required></textarea>
+                <span class="error-msg" id="message-error">Please enter a message (minimum 10 characters).</span>
+              </div>
+
+              <button type="submit" id="contact-submit-btn" class="btn btn-primary btn-block">
+                <span class="btn-text">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                  </svg>
+                  Send Message to Ravihansa
+                </span>
+                <span class="btn-loading hidden">Sending...</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Player Modal Dialog -->
+  <dialog id="video-modal" class="modal-dialog">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h4 id="modal-video-title" class="modal-title">Motivational Video</h4>
+        <button id="close-modal-btn" class="modal-close-btn" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-player-wrap">
+        <iframe id="modal-video-iframe" src="" title="Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="modal-footer">
+        <a id="modal-external-link" href="https://www.youtube.com/@Rasu_Motivation" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+          Watch on YouTube App
+        </a>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Saved Quotes Modal Dialog -->
+  <dialog id="favorites-modal" class="modal-dialog">
+    <div class="modal-box modal-box-wide">
+      <div class="modal-header">
+        <h4 class="modal-title">❤️ My Saved Motivational Quotes</h4>
+        <button id="close-favorites-modal-btn" class="modal-close-btn" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="saved-quotes-list" id="saved-quotes-container">
+        <!-- Rendered via JS -->
+      </div>
+      <div class="modal-footer">
+        <button id="clear-all-favorites-btn" class="btn btn-outline btn-sm">Clear All Favorites</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-title">RASU <span class="accent-text">MOTIVATION</span></span>
+            </div>
+          </div>
+          <p class="footer-tagline">
+            Empowering the minds of students, dreamers, and leaders across Sri Lanka through discipline, focus, and unstoppable self-belief.
+          </p>
+          <div class="founder-credit">
+            Founded & Hosted by <strong>MGCJ Ravihansa</strong><br>
+            <span>BSc. Applied Sciences in RUSL (UG)</span>
+          </div>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="f-col-title">Navigation</h5>
+          <ul class="f-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#live-stats">Live Counter</a></li>
+            <li><a href="#videos-section">New Videos</a></li>
+            <li><a href="#shorts-section">Motivation Shorts</a></li>
+            <li><a href="#quotes-section">Daily Quotes</a></li>
+            <li><a href="#about-section">About MGCJ Ravihansa</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav-col">
+          <h5 class="f-col-title">Quick Connect</h5>
+          <ul class="f-links">
+            <li><a href="https://www.youtube.com/@Rasu_Motivation/featured" target="_blank" rel="noopener noreferrer">YouTube Channel</a></li>
+            <li><a href="https://www.youtube.com/@Rasu_Motivation/shorts" target="_blank" rel="noopener noreferrer">Shorts Reel</a></li>
+            <li><a href="#contact-section">Send Direct Inquiry</a></li>
+            <li><a href="mailto:rasumotivation.official@gmail.com">rasumotivation.official@gmail.com</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter-col">
+          <h5 class="f-col-title">Daily Motivation Alert</h5>
+          <p class="f-subtext">Join our subscriber email list for weekly study guides, motivational digests, and video drops.</p>
+          <form id="newsletter-form" class="f-form" onsubmit="event.preventDefault(); window.handleNewsletter(event);">
+            <div class="f-input-group">
+              <input type="email" placeholder="Your email address" class="f-input" required id="newsletter-email">
+              <button type="submit" class="btn btn-primary btn-sm">Join</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="copyright">
+          &copy; <span id="year-display">2026</span> Rasu Motivation. Designed & Developed for <strong>MGCJ Ravihansa</strong> (RUSL). All Rights Reserved.
+        </div>
+        <div class="footer-back-top">
+          <a href="#hero" class="back-to-top" aria-label="Back to top">
+            Back to Top ↑
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="app.js"></script>
+</body>
+</html>
